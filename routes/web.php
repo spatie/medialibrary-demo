@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('add-media-to-library', function() {
     Article::create()
-        ->addMedia(storage_path('demo/museum.jpg'))
+        ->addMedia(storage_path('demo/library-dublin.jpg'))
         ->toMediaCollection();
 });
+
