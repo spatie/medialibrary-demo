@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use Illuminate\Http\Request;
 
 class ArticleController
 {
@@ -12,13 +11,13 @@ class ArticleController
         return view('article.create');
     }
 
-    public function store(Request $request)
+    public function store()
     {
         /** @var Article $article */
         $article = Article::create();
 
         $article
-            ->addMediaFromRequest($request->image)
+            ->addMediaFromRequest('image')
             ->toMediaCollection();
 
         return back();
