@@ -2,10 +2,10 @@
 
 namespace App\Console\Commands;
 
-use App\Article;
+use App\Models\Article;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use Spatie\MediaLibrary\Models\Media;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ResetDemo extends Command
 {
@@ -27,7 +27,6 @@ class ResetDemo extends Command
 
         $this->call('cache:clear');
 
-        $this->comment('Don\'t forget to reset the code in the Article model, and delete all files in the S3 bucket.');
         $this->info('All done!');
     }
 }

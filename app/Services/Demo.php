@@ -15,7 +15,7 @@ class Demo
 
         File::makeDirectory($destinationPath, 0777, true, true);
 
-        collect(File::allFiles(storage_path('app/stubs')))->each(function (SplFileInfo $file) {
+        collect(File::allFiles(storage_path('stubs')))->each(function (SplFileInfo $file) {
             $destination = storage_path("demo/{$file->getFilename()}");
 
             copy($file->getRealPath(), $destination);
