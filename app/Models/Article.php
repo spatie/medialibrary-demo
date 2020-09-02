@@ -9,4 +9,9 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Article extends Model implements HasMedia
 {
     use InteractsWithMedia;
+
+    public static function last()
+    {
+        return static::all()->last();
+    }
 }
