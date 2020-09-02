@@ -6,9 +6,9 @@ use App\Services\Demo as DemoService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Route;
 
-class Demo extends Command
+class Visit extends Command
 {
-    protected $signature = 'demo';
+    protected $signature = 'visit';
 
     protected $description = 'Perform the demo';
 
