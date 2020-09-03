@@ -13,7 +13,6 @@ Route::get('downloading-a-file', function () {
     return $media;
 });
 
-
 Route::get('downloading-a-file-from-s3', function () {
     $media = Article::create()
         ->addMedia(storage_path('demo/laravel-beyond-crud.pdf'))
@@ -21,7 +20,6 @@ Route::get('downloading-a-file-from-s3', function () {
 
     return $media;
 });
-
 
 Route::get('downloading-multiple-files', function () {
     Media::truncate();

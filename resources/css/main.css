@@ -3,3 +3,8 @@
 @tailwind components;
 
 @tailwind utilities;
+
+img {
+    width: 100%;
+    max-width: 1000px;
+}
