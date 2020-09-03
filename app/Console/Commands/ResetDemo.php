@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Article;
 use App\Services\Demo as DemoService;
+use Artisan;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -23,6 +24,7 @@ class ResetDemo extends Command
 
         Media::all()->each->delete();
         Media::truncate();
+        Artisan::call('migrate:fresh --seed');
 
         File::cleanDirectory(public_path('media'));
 

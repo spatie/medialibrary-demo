@@ -14,4 +14,11 @@ class Article extends Model implements HasMedia
     {
         return static::all()->last();
     }
+
+    public function registerMediaCollections(): void
+    {
+        $this
+            ->addMediaCollection('big-files')
+            ->useDisk('s3');
+    }
 }
