@@ -1,3 +1,3 @@
 <x-page>
-    {{ $media  }}
+    {{ $media }}
 </x-page>
