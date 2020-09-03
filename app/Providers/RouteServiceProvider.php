@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\Finder\SplFileInfo;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -50,8 +52,13 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-            ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
+
+        collect(File::files(base_path('routes/demo')))
+            ->each(function (SplFileInfo $file) {
+                Route::middleware('web')
+                    ->group($file->getPathname());
+            });
     }
 
     /**

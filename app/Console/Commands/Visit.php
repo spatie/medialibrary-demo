@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Services\Demo as DemoService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 class Visit extends Command
 {
@@ -33,7 +34,7 @@ class Visit extends Command
             return;
         }
 
-        starts_with($uri, ['downloading', 'showing'])
+        Str::startsWith($uri, ['downloading', 'showing', 'add-media-from-request'])
             ? $this->openUpBrowser($uri)
             : $this->visit($uri);
     }

@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Article;
+use App\Services\Demo as DemoService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -24,6 +25,9 @@ class ResetDemo extends Command
         Media::truncate();
 
         File::cleanDirectory(public_path('media'));
+
+        DemoService::resetDemoFiles();
+
 
         $this->call('cache:clear');
 
