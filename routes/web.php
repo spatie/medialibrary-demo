@@ -64,30 +64,6 @@ Route::get('pdf-conversions', function () {
 });
 
 
-Route::get('customizing-the-path', function () {
-
-    // Let's use a path generator
-
-    Article::create()
-        ->addMedia(storage_path('demo/museum.jpg'))
-        ->toMediaCollection();
-});
-
-
-Route::get('using-s3', function () {
-    Article::create()
-        ->addMedia(storage_path('demo/museum.jpg'))
-        ->toMediaCollection('images', 's3');
-});
-
-
-Route::get('defining-media-collections', function () {
-    Article::create()
-        ->addMedia(storage_path('demo/nova-talk-notes.pdf'))
-        ->toMediaCollection('big-files');
-});
-
-
 Route::get('downloading-a-file', function () {
     $media = Article::create()
         ->addMedia(storage_path('demo/nova-talk-notes.pdf'))
