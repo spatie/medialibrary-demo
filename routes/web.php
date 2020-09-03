@@ -43,17 +43,6 @@ Route::get('using-collections', function () {
 
 
 
-
-Route::get('using-media-conversions', function () {
-
-    // Let's add some media conversions before running this
-
-    Article::create()
-        ->addMedia(storage_path('demo/museum.jpg'))
-        ->toMediaCollection('images');
-});
-
-
 /*
 Route::get('non-queued-conversions', function() {
 
@@ -64,17 +53,6 @@ Route::get('non-queued-conversions', function() {
         ->toMediaCollection('images');
 });
 */
-
-
-Route::get('optimized-images', function () {
-
-    // Let's turn off the optimization
-
-    Article::create()
-        ->addMedia(storage_path('demo/museum.jpg'))
-        ->toMediaCollection('images');
-});
-
 
 Route::get('pdf-conversions', function () {
 
