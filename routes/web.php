@@ -64,39 +64,6 @@ Route::get('pdf-conversions', function () {
 });
 
 
-Route::get('downloading-a-file', function () {
-    $media = Article::create()
-        ->addMedia(storage_path('demo/nova-talk-notes.pdf'))
-        ->toMediaCollection();
-
-    return $media;
-});
-
-
-Route::get('downloading-a-file-from-s3', function () {
-    $media = Article::create()
-        ->addMedia(storage_path('demo/nova-talk-notes.pdf'))
-        ->toMediaCollection('downloads', 's3');
-
-    return $media;
-});
-
-
-Route::get('downloading-multiple-files', function () {
-    Media::truncate();
-
-    Article::create()
-        ->addMedia(storage_path('demo/museum.jpg'))
-        ->toMediaCollection();
-
-    Article::create()
-        ->addMedia(storage_path('demo/nova-talk-notes.pdf'))
-        ->toMediaCollection('downloads', 's3');
-
-    return MediaStream::create('your-files.zip')->addMedia(Media::all());
-});
-
-
 Route::get('generating-responsive-images', function () {
     Article::create()
         ->addMedia(storage_path('demo/museum.jpg'))
