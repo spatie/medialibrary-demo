@@ -1,0 +1,10 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+img {
+    width: 100%;
+    max-width: 1200px;
+}
